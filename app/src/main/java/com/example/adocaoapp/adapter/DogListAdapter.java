@@ -32,15 +32,10 @@ public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewH
     @Override
     public void onBindViewHolder(@NonNull DogViewHolder holder, int position) {
 
-<<<<<<< HEAD
-        Dog dog = dogs.get(position);
-        holder.nome.setText(dog.getNome());
-=======
         Pet pet = pets.get(position);
 
         holder.nome.setText(pet.getNome());
         holder.imgPet.setImageBitmap(pet.getPhoto());
->>>>>>> abd5800673ba5fd7e1fe66bfa11d12ba4cfc3776
 
     }
 

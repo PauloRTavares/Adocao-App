@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.DogListAdapter;
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
+
+        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
 
     }
 

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AdocaoApp</string>
+    <string name="quero_adotar">Quero adotar</string>
+    <string name="imagem_logo">Imagem Logo</string>
 </resources>

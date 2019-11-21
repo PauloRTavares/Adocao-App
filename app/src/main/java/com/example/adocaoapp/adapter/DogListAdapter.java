@@ -31,7 +31,6 @@ public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewH
     public void onBindViewHolder(@NonNull DogViewHolder holder, int position) {
 
         Dog dog = dogs.get(position);
-
         holder.nome.setText(dog.getNome());
 
     }

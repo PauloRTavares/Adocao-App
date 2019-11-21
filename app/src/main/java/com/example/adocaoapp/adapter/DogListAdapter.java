@@ -3,21 +3,23 @@ package com.example.adocaoapp.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.model.Dog;
+import com.example.adocaoapp.model.Pet;
+
 import java.util.List;
 
 public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewHolder> {
 
-    List<Dog> dogs;
+    List<Pet> pets;
 
-    public DogListAdapter(List<Dog> dogs) {
-        this.dogs = dogs;
+    public DogListAdapter(List<Pet> pets) {
+        this.pets = pets;
     }
 
     @NonNull
@@ -30,24 +32,33 @@ public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewH
     @Override
     public void onBindViewHolder(@NonNull DogViewHolder holder, int position) {
 
+<<<<<<< HEAD
         Dog dog = dogs.get(position);
         holder.nome.setText(dog.getNome());
+=======
+        Pet pet = pets.get(position);
+
+        holder.nome.setText(pet.getNome());
+        holder.imgPet.setImageBitmap(pet.getPhoto());
+>>>>>>> abd5800673ba5fd7e1fe66bfa11d12ba4cfc3776
 
     }
 
     @Override
     public int getItemCount() {
-        return dogs.size();
+        return pets.size();
     }
 
     public class DogViewHolder extends RecyclerView.ViewHolder {
 
         TextView nome;
+        ImageView imgPet;
 
         public DogViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nome = itemView.findViewById(R.id.txtNome);
+            imgPet = itemView.findViewById(R.id.imgPet);
         }
     }
 

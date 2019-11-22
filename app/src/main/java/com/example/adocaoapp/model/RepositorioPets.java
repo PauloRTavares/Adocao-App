@@ -19,7 +19,7 @@ public class RepositorioPets {
     public ArrayList<Pet> getPets(Context context) {
 
         pets.add(
-                new Pet("Doguinho1", BitmapFactory.decodeResource(, R.drawable.dog)));
+                new Pet("Doguinho1", BitmapFactory.decodeResource(context.getResources(), R.drawable.dog)));
 
         pets.add(
                 new Pet("Mergulhao", BitmapFactory.decodeResource(context.getResources(), R.drawable.mergulhao_resize)));

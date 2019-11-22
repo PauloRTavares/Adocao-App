@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPresenter(this);
+        //presenter = new MainPresenter(this);
 
 
         //ADAPTER DA RECYCLER VIEW

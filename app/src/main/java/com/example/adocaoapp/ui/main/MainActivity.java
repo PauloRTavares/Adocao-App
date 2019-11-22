@@ -20,8 +20,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
 
     RecyclerView rv;
-    List<Pet> listaTeste = new ArrayList<>();
-
     MainPresenter presenter;
 
     @Override
@@ -29,19 +27,9 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //presenter = new MainPresenter(this);
-
-
-        //ADAPTER DA RECYCLER VIEW
-        PetListAdapter adapter = new PetListAdapter(listaTeste);
-
-        //CONFIGURAÇÃO DA RECYCLER VIEW
-        rv = findViewById(R.id.recyclerView);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(adapter);
-
-
+        presenter = new MainPresenter(this);
         Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+        presenter.callPets();
 
     }
 
@@ -49,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
-
+        PetListAdapter adapter = new PetListAdapter(pets);
+        //CONFIGURAÇÃO DA RECYCLER VIEW
+        rv = findViewById(R.id.recyclerView);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(adapter);
     }
 }

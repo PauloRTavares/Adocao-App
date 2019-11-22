@@ -35,7 +35,8 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         Pet pet = pets.get(position);
 
         holder.nome.setText(pet.getNome());
-        holder.imgPet.setImageBitmap(pet.getPhoto());
+
+    //  holder.imgPet.setImageBitmap(pet.getPhoto());
 
     }
 

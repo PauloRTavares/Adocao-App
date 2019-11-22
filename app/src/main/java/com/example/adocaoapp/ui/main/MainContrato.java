@@ -15,7 +15,7 @@ public interface MainContrato {
 
     interface Presenter {
 
-        void callPets(Context context);
+        void callPets();
 
     }
 }

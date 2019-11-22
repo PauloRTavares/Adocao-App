@@ -11,18 +11,19 @@ public class MainPresenter implements MainContrato.Presenter {
 
     private MainContrato.View view;
     private RepositorioPets repositorioPets;
-    private ArrayList<Pet> petArrayList = new ArrayList<>();
+        private ArrayList<Pet> petArrayList = new ArrayList<>();
 
 
-    public MainPresenter(MainContrato.View view) {
+    public MainPresenter(MainContrato.View view, RepositorioPets repositorioPets, ArrayList<Pet> petArrayList) {
         this.view = view;
-
+        this.repositorioPets = repositorioPets;
+        this.petArrayList = petArrayList;
     }
 
-
     @Override
-    public void callPets() {
+    public void callPets(Context context) {
         petArrayList = repositorioPets.getPets();
-        view.showPets();
+
+        view.showPets(petArrayList);
     }
 }

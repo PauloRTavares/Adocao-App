@@ -1,6 +1,8 @@
 package com.example.adocaoapp.model;
 
+
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 
 import com.example.adocaoapp.R;
@@ -14,10 +16,10 @@ public class RepositorioPets {
     private MainContrato.Presenter presenter;
 
 
-    public ArrayList<Pet> getPets() {
+    public ArrayList<Pet> getPets(Context context) {
 
         pets.add(
-                new Pet("Doguinho1", BitmapFactory.decodeResource(getResources(), R.drawable.dog)));
+                new Pet("Doguinho1", BitmapFactory.decodeResource(, R.drawable.dog)));
 
         pets.add(
                 new Pet("Mergulhao", BitmapFactory.decodeResource(context.getResources(), R.drawable.mergulhao_resize)));

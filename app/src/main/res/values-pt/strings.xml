@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AdocaoApp</string>
+    <string name="doguinho">Doguinho</string>
+    <string name="imagem_logo">Imagem Logo</string>
+    <string name="quero_adotar">Quero adotar</string>
+</resources>

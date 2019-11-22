@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
@@ -34,12 +35,14 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
+        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+
     }
 
     private void addOnTestList(){
 
         listaTeste.add(
-                new Pet("Doguinho1", BitmapFactory.decodeResource(getResources(), R.drawable.dog)));
+                new Pet("Doguinho1", BitmapFactory.decodeResource(getRellsources(), R.drawable.dog)));
 
         listaTeste.add(
                 new Pet("Mergulhao", BitmapFactory.decodeResource(getResources(), R.drawable.mergulhao_resize)));

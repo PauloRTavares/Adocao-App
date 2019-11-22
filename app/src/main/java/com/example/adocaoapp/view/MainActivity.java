@@ -8,7 +8,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.adapter.DogListAdapter;
+import com.example.adocaoapp.adapter.PetListAdapter;
 import com.example.adocaoapp.model.Pet;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         addOnTestList();
 
         //ADAPTER DA RECYCLER VIEW
-        DogListAdapter adapter = new DogListAdapter(listaTeste);
+        PetListAdapter adapter = new PetListAdapter(listaTeste);
 
         //CONFIGURAÇÃO DA RECYCLER VIEW
         rv = findViewById(R.id.recyclerView);

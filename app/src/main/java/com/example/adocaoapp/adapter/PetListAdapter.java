@@ -14,23 +14,23 @@ import com.example.adocaoapp.model.Pet;
 
 import java.util.List;
 
-public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewHolder> {
+public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewHolder> {
 
     List<Pet> pets;
 
-    public DogListAdapter(List<Pet> pets) {
+    public PetListAdapter(List<Pet> pets) {
         this.pets = pets;
     }
 
     @NonNull
     @Override
-    public DogViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_tela_principal, parent, false);
-        return new DogViewHolder(itemView);
+        return new PetViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DogViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
 
         Pet pet = pets.get(position);
 
@@ -44,12 +44,12 @@ public class DogListAdapter extends RecyclerView.Adapter<DogListAdapter.DogViewH
         return pets.size();
     }
 
-    public class DogViewHolder extends RecyclerView.ViewHolder {
+    public class PetViewHolder extends RecyclerView.ViewHolder {
 
         TextView nome;
         ImageView imgPet;
 
-        public DogViewHolder(@NonNull View itemView) {
+        public PetViewHolder(@NonNull View itemView) {
             super(itemView);
 
             nome = itemView.findViewById(R.id.txtNome);

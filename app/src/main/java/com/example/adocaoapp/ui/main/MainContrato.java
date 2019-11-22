@@ -1,6 +1,7 @@
 package com.example.adocaoapp.ui.main;
 
-import android.content.Context;
+
+import android.graphics.BitmapFactory;
 
 import com.example.adocaoapp.model.Pet;
 
@@ -15,7 +16,7 @@ public interface MainContrato {
 
     interface Presenter {
 
-        void callPets(Context context);
+        void callPets();
 
     }
 }

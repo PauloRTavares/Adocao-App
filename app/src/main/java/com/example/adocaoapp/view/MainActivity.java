@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private void addOnTestList(){
 
         listaTeste.add(
-                new Pet("Doguinho1", BitmapFactory.decodeResource(getRellsources(), R.drawable.dog)));
+                new Pet("Doguinho1", BitmapFactory.decodeResource(getResources(), R.drawable.dog)));
 
         listaTeste.add(
                 new Pet("Mergulhao", BitmapFactory.decodeResource(getResources(), R.drawable.mergulhao_resize)));

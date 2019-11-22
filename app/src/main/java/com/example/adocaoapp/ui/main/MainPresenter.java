@@ -22,7 +22,7 @@ public class MainPresenter implements MainContrato.Presenter {
 
     @Override
     public void callPets(Context context) {
-        petArrayList = repositorioPets.getPets();
+        //petArrayList = repositorioPets.getPets();
 
         view.showPets(petArrayList);
     }

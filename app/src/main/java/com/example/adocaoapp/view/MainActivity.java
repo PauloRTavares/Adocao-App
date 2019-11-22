@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(adapter);
 
-        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no pc do Paulo");
 
     }
 

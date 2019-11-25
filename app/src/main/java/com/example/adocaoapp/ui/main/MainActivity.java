@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
+import com.example.adocaoapp.di.App;
 
 import java.util.ArrayList;
 
@@ -18,23 +19,29 @@ import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
     @Inject
-    Pet pet;
+    MainContrato.Presenter presenter;
+
     private static final String TAG = "Main";
 
     RecyclerView rv;
-    MainPresenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Dagger Aqui
-        presenter = new MainPresenter(this);
+        ((App) getApplication()).getComponent().inject(this);
+
         Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
-        presenter.callPets();
+        //presenter.callPets();
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.setView(this);
+    }
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
@@ -42,9 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         PetListAdapter adapter = new PetListAdapter(pets, new PetListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Pet pet) {
-
                 Toast.makeText(MainActivity.this, "Clicou no: "+pet.getNome().toString(), Toast.LENGTH_SHORT).show();
-
             }
         });
 

@@ -1,27 +1,39 @@
 package com.example.adocaoapp.ui.main;
 
-import android.content.Context;
+import androidx.annotation.Nullable;
 
-import com.example.adocaoapp.model.Pet;
-import com.example.adocaoapp.model.RepositorioPets;
+import com.example.adocaoapp.data.model.Pet;
+import com.example.adocaoapp.data.repository.PetRepository;
 
 import java.util.ArrayList;
 
 public class MainPresenter implements MainContrato.Presenter {
 
+    @Nullable
     private MainContrato.View view;
-    private RepositorioPets repositorioPets = new RepositorioPets();
+    private MainContrato.Model model;
+
+    private PetRepository petRepository = new PetRepository();
     private ArrayList<Pet> petArrayList = new ArrayList<>();
 
 
-    public MainPresenter(MainContrato.View view) {
+    public MainPresenter(MainContrato.Model model) {
+        this.model = model;
+    }
+
+    @Override
+    public void setView(MainContrato.View view) {
         this.view = view;
     }
 
 
     @Override
     public void callPets() {
-        petArrayList = repositorioPets.getPets();
+        petArrayList = petRepository.getPets();
         view.showPets(petArrayList);
     }
+
+    //LikeButtonAqui
+
+    //PetSelectedAqui
 }

@@ -1,4 +1,4 @@
-package com.example.adocaoapp.model;
+package com.example.adocaoapp.data.model;
 
 import android.util.Log;
 
@@ -83,5 +83,9 @@ public class Pet {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public void setId(int i) {
+        this.id = i;
     }
 }

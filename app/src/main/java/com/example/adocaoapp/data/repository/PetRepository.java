@@ -1,8 +1,6 @@
-package com.example.adocaoapp.model;
+package com.example.adocaoapp.data.repository;
 
-
-
-
+import com.example.adocaoapp.data.model.Pet;
 import com.example.adocaoapp.service.JsonPlaceHolderApi;
 
 import java.util.ArrayList;
@@ -14,9 +12,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RepositorioPets {
+public class PetRepository implements MainRepository {
+    private Pet pet;
     private ArrayList<Pet> pets = new ArrayList<>();
-
 
     public ArrayList<Pet> getPets() {
 
@@ -41,18 +39,23 @@ public class RepositorioPets {
 
             }
         });
-
-        //Codigo com Erro
-
-        /*pets.add(new Pet("Doguinho1"));
-
-        pets.add(new Pet("Mergulhao"));
-
-        pets.add(new Pet("Doguinho2"));*/
-
-
         return pets;
     }
 
+    @Override
+    public Pet getPet() {
+        if (pet == null) {
+            Pet pet = new Pet(
+                    "Dinesh", "Kumar", "",
+                    "","", "", "", "", "", "");
+            pet.setId(0);
+        }
+        return pet;
+    }
 
+    @Override
+    public void savePet(Pet pet) {
+        if (pet == null) pet = getPet();
+        else this.pet = pet;
+    }
 }

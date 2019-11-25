@@ -1,8 +1,6 @@
 package com.example.adocaoapp.ui.main;
 
-import android.content.Context;
-
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
 
 import java.util.ArrayList;
 
@@ -14,5 +12,14 @@ public interface MainContrato {
 
     interface Presenter {
         void callPets();
+    }
+
+    public interface Model {
+        void createPet(String nome, String cidade, String avatar,
+                       String idade, String peso, String porte,
+                       String raca, String cor, String sexo, String descricao);
+
+        Pet getPet();
+        ArrayList<Pet> getPets();
     }
 }

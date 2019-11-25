@@ -3,28 +3,59 @@ package com.example.adocaoapp.model;
 import android.graphics.Bitmap;
 
 public class Pet {
-    // Substituir para o Pets do Moretti completo
+    private int id;
     private String nome;
-    // private Bitmap photo;
+    private String cidade;
+    private String avatar;
+    private String idade;
+    private String peso;
+    private String porte;
+    private String raca;
+    private String cor;
+    private String sexo;
+    private String descricao;
 
-    public Pet(String nome) {
-        this.nome = nome;
-    //    this.photo = photo;
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public String getCidade() {
+        return cidade;
     }
 
-//    public Bitmap getPhoto() {
-//        return photo;
-//    }
-//
-//    public void setPhoto(Bitmap photo) {
-//        this.photo = photo;
-//    }
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public String getIdade() {
+        return idade;
+    }
+
+    public String getPeso() {
+        return peso;
+    }
+
+    public String getPorte() {
+        return porte;
+    }
+
+    public String getRaca() {
+        return raca;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }

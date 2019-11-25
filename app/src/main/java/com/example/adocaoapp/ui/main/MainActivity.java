@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
             @Override
             public void onItemClick(Pet pet) {
 
-                Toast.makeText(MainActivity.this, "Clicou no: "+pet.getNome().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Clicou no: "+pet.getId(), Toast.LENGTH_SHORT).show();
 
             }
         }, this);

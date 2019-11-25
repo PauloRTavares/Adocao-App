@@ -1,6 +1,12 @@
 package com.example.adocaoapp.ui.main;
 
+import android.app.Activity;
+import android.content.Context;
+import android.util.Log;
+import android.view.View;
+
 import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.model.PetConsuming;
 import com.example.adocaoapp.service.JsonPlaceHolderApi;
 
 import java.util.ArrayList;
@@ -14,39 +20,25 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainPresenter implements MainContrato.Presenter {
 
     private MainContrato.View view;
-    private ArrayList<Pet> petArrayList = new ArrayList<>();
+    private MainContrato.Model model;
 
-
-    public MainPresenter(MainContrato.View view) {
+    public MainPresenter(MainContrato.View view){
         this.view = view;
     }
 
 
     @Override
     public void callPets() {
-        //petArrayList = repositorioPets.getPets();
 
-        //Conexao Retrofit2
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://5dd40af58b5e080014dc4e30.mockapi.io/api/v1/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        model = new PetConsuming();
 
-        //JSON
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<ArrayList<Pet>> call = jsonPlaceHolderApi.getPets();
+        model.requestPets(this);
+    }
 
-        call.enqueue(new Callback<ArrayList<Pet>>() {
-            @Override
-            public void onResponse(Call<ArrayList<Pet>> call, Response<ArrayList<Pet>> response) {
-                ArrayList<Pet> pets = response.body();
-                view.showPets(pets);
-            }
+    @Override
+    public void giveBackPets(ArrayList<Pet> pets) {
 
-            @Override
-            public void onFailure(Call<ArrayList<Pet>> call, Throwable t) {
+        view.showPets(pets);
 
-            }
-        });
     }
 }

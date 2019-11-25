@@ -8,6 +8,12 @@ import java.util.ArrayList;
 
 public interface MainContrato {
 
+    interface Model{
+
+        void requestPets(MainPresenter presenter);
+
+    }
+
     interface View {
         void showPets(ArrayList<Pet> pets);
 
@@ -18,6 +24,7 @@ public interface MainContrato {
     interface Presenter {
 
         void callPets();
+        void giveBackPets(ArrayList<Pet> pets);
 
     }
 }

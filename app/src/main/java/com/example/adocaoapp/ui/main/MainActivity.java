@@ -4,18 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
+import android.widget.Toast;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
 import com.example.adocaoapp.model.Pet;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
 
@@ -37,7 +34,17 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
-        PetListAdapter adapter = new PetListAdapter(pets);
+
+        //INSTÂNCIA DO ADAPTER
+        PetListAdapter adapter = new PetListAdapter(pets, new PetListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(Pet pet) {
+
+                Toast.makeText(MainActivity.this, "Clicou no: "+pet.getNome().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
         //CONFIGURAÇÃO DA RECYCLER VIEW
         rv = findViewById(R.id.recyclerView);
         rv.setLayoutManager(new LinearLayoutManager(this));

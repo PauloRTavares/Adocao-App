@@ -5,16 +5,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.adapter.PetListAdapter;
+import com.example.adocaoapp.di.PetComponent;
 import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.adapter.*;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
+    private Pet pet;
 
     RecyclerView rv;
     MainPresenter presenter;
@@ -24,9 +25,14 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPresenter(this);
-        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
-        presenter.callPets();
+        //É aqui que entra o Dagger
+        PetComponent component = DaggerPetComponent.create();
+        pet = component.getPet();
+        pet.talk();
+
+        //presenter = new MainPresenter(this);
+        //Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+        //presenter.callPets();
 
     }
 
@@ -34,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
-
         //INSTÂNCIA DO ADAPTER
         PetListAdapter adapter = new PetListAdapter(pets, new PetListAdapter.OnItemClickListener() {
             @Override

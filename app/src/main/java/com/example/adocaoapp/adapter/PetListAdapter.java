@@ -1,5 +1,6 @@
 package com.example.adocaoapp.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.model.Pet;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -18,11 +21,13 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     List<Pet> pets;
     private final OnItemClickListener onItemClickListener;
+    private Context context;
 
 
-    public PetListAdapter(List<Pet> pets, OnItemClickListener onItemClickListener) {
+    public PetListAdapter(List<Pet> pets, OnItemClickListener onItemClickListener, Context context) {
         this.pets = pets;
         this.onItemClickListener = onItemClickListener;
+        this.context = context;
     }
 
     public interface OnItemClickListener{
@@ -46,6 +51,20 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         holder.bind(pet, onItemClickListener);
 
         holder.nome.setText(pet.getNome());
+
+        Picasso.with(context).load(pet.getAvatar()).placeholder(R.drawable.loading)
+                .error(R.drawable.loading)
+                .into(holder.imgPet, new Callback() {
+                    @Override
+                    public void onSuccess() {
+
+                    }
+
+                    @Override
+                    public void onError() {
+
+                    }
+                });
 
     //  holder.imgPet.setImageBitmap(pet.getPhoto());
 
@@ -74,7 +93,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                 @Override
                 public void onClick(View view) {
 
-                    onItemClickListener.onItemClick(pet);
+                onItemClickListener.onItemClick(pet);
 
                 }
             });

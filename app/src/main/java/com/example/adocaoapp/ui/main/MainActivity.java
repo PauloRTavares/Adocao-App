@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
         //É aqui que entra o Dagger
         PetComponent component = DaggerPetComponent.create();
-        pet = component.getPet();
+        component.inject(this);
+
         pet.talk();
 
         //presenter = new MainPresenter(this);

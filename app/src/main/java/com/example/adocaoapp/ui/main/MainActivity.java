@@ -1,21 +1,20 @@
 package com.example.adocaoapp.ui.main;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.di.PetComponent;
+import com.example.adocaoapp.adapter.PetListAdapter;
 import com.example.adocaoapp.model.Pet;
-import com.example.adocaoapp.adapter.*;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
-    private Pet pet;
 
     RecyclerView rv;
     MainPresenter presenter;
@@ -24,17 +23,9 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //É aqui que entra o Dagger
-        PetComponent component = DaggerPetComponent.create();
-        component.inject(this);
-
-        pet.talk();
-
-        //presenter = new MainPresenter(this);
-        //Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
-        //presenter.callPets();
-
+        presenter = new MainPresenter(this);
+        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+        presenter.callPets();
     }
 
 

@@ -10,12 +10,9 @@ public interface MainContrato {
 
     interface View {
         void showPets(ArrayList<Pet> pets);
-
     }
 
     interface Presenter {
-
         void callPets();
-
     }
 }

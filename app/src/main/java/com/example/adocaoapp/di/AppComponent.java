@@ -1,19 +1,13 @@
 package com.example.adocaoapp.di;
 
-import android.content.Context;
+import com.example.adocaoapp.ui.main.MainActivity;
 
 import javax.inject.Singleton;
 
-import dagger.BindsInstance;
 import dagger.Component;
 
 @Singleton
-@Component(modules = PetModule.class)
+@Component(modules = {AppModule.class, MainModule.class})
 public interface AppComponent {
-    @Component.Factory
-    interface Factory {
-        public AppComponent create(@BindsInstance Context context);
-    }
-
-    PetComponent.Factory petComponent();
+    void inject(MainActivity target);
 }

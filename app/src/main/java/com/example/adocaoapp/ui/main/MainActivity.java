@@ -10,31 +10,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
 
 import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity implements MainContrato.View{
+public class MainActivity extends AppCompatActivity implements MainContrato.View {
     @Inject
-    Pet pet;
+    MainContrato.Presenter presenter;
+
     private static final String TAG = "Main";
 
     RecyclerView rv;
-    MainPresenter presenter;
+    //MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Dagger Aqui
-        presenter = new MainPresenter(this);
+        ((App) getApplication()).getComponent().inject(this);
+
         Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
         presenter.callPets();
     }
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.setView(this);
+    }
 
     @Override
     public void showPets(ArrayList<Pet> pets) {

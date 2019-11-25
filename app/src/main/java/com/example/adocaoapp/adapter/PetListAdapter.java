@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
 
 import java.util.List;
 

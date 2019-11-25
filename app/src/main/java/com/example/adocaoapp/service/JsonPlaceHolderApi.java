@@ -1,6 +1,6 @@
 package com.example.adocaoapp.service;
 
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
 
 import java.util.List;
 

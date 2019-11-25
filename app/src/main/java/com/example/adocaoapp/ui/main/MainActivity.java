@@ -14,7 +14,11 @@ import com.example.adocaoapp.model.Pet;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
+    @Inject
+    Pet pet;
     private static final String TAG = "Main";
 
     RecyclerView rv;
@@ -24,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //Dagger Aqui
         presenter = new MainPresenter(this);
         Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
         presenter.callPets();

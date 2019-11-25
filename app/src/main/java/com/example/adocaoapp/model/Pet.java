@@ -14,6 +14,8 @@ public class Pet {
     private String cor;
     private String sexo;
     private String descricao;
+    private Boolean favorito;
+    private Boolean adotado;
 
     public int getId() {
         return id;
@@ -57,5 +59,13 @@ public class Pet {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public Boolean getFavorito(){
+        return favorito;
+    }
+
+    public Boolean getAdotado(){
+        return adotado;
     }
 }

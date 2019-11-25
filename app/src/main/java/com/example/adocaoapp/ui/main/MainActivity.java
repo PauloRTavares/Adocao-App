@@ -15,6 +15,7 @@ import com.example.adocaoapp.model.Pet;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
+    private static final String TAG = "Main";
 
     RecyclerView rv;
     MainPresenter presenter;
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         presenter = new MainPresenter(this);
-        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+        Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
         presenter.callPets();
     }
 

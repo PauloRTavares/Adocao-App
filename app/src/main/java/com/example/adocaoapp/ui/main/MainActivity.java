@@ -24,8 +24,10 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Instancia do Presenter
         presenter = new MainPresenter(this);
-        Log.d("TesteMergulhao", "Log feito pelo Mergulhão no PC do Paulo");
+
+        //Chamr método que chama o Retrofit
         presenter.callPets();
 
     }
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
                 Toast.makeText(MainActivity.this, "Clicou no: "+pet.getNome().toString(), Toast.LENGTH_SHORT).show();
 
             }
-        });
+        }, this);
 
         //CONFIGURAÇÃO DA RECYCLER VIEW
         rv = findViewById(R.id.recyclerView);

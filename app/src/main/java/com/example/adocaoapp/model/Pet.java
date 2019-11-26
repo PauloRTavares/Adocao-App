@@ -1,6 +1,8 @@
 package com.example.adocaoapp.model;
 
-import android.graphics.Bitmap;
+import android.util.Log;
+
+import javax.inject.Inject;
 
 public class Pet {
     private int id;
@@ -14,8 +16,30 @@ public class Pet {
     private String cor;
     private String sexo;
     private String descricao;
-    private Boolean favorito;
-    private Boolean adotado;
+
+    //Criando um construtor com as características de meu Pet.
+    //Colocar uma injeção do Dagger
+    @Inject
+    public Pet(String nome, String cidade,String avatar,
+               String idade, String peso, String porte,
+               String raca, String cor, String sexo, String descricao){
+        this.nome = nome;
+        this.cidade = cidade;
+        this.avatar = avatar;
+        this.idade = idade;
+        this.peso = peso;
+        this.porte = porte;
+        this.raca = raca;
+        this.cor = cor;
+        this.sexo = sexo;
+        this.descricao = descricao;
+    }
+
+    //Teste do Latido
+    private static final String TAG = "Pet";
+    public void talk(){
+        Log.d(TAG, "Au au");
+    }
 
     public int getId() {
         return id;
@@ -61,11 +85,8 @@ public class Pet {
         return descricao;
     }
 
-    public Boolean getFavorito(){
-        return favorito;
-    }
 
-    public Boolean getAdotado(){
-        return adotado;
+    public void setId(int i) {
+        this.id = i;
     }
 }

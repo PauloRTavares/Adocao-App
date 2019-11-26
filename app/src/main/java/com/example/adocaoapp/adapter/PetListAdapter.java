@@ -46,7 +46,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         Pet pet = pets.get(position);
         holder.bind(pet, onItemClickListener);
         holder.nome.setText(pet.getNome());
-        Picasso.with(context).load(pet.getAvatar()).placeholder(R.drawable.loading)
+        Picasso.get().load(pet.getAvatar()).placeholder(R.drawable.loading)
                 .error(R.drawable.loading)
                 .into(holder.imgPet, new Callback() {
                     @Override
@@ -55,7 +55,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                     }
 
                     @Override
-                    public void onError() {
+                    public void onError(Exception e) {
 
                     }
                 });

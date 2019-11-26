@@ -20,7 +20,7 @@ import javax.inject.Inject;
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
 
     RecyclerView rv;
-    List<Pet> pets = new ArrayList<>();
+    ArrayList<Pet> pets = new ArrayList<>();
 
     @Inject
     MainContrato.Presenter presenter;
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
         presenter = new MainPresenter(this);
         //Dagger Aqui
-        ((App) getApplication()).getComponent().inject(this);
+     //   ((App) getApplication()).getComponent().inject(this);
 
         Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
-        //presenter.callPets();
+        presenter.callPets();
 
     }
 
@@ -54,23 +54,15 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
     }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        presenter.setView(this);
-    }
+
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
-        this.pets = pets;
         //INSTÂNCIA DO ADAPTER
         PetListAdapter adapter = new PetListAdapter(pets, new PetListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Pet pet) {
-                Toast.makeText(
-                        ListActivity.this,
-                        R.string.selected + " " + pet.getNome(),
-                        Toast.LENGTH_SHORT).show();
+
             }
         });
 

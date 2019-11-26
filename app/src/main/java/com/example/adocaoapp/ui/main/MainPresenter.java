@@ -29,16 +29,12 @@ public class MainPresenter implements MainContrato.Presenter {
 
     @Override
     public void callPets() {
-
         model = new PetConsuming();
-
         model.requestPets(this);
     }
 
     @Override
     public void giveBackPets(ArrayList<Pet> pets) {
-
         view.showPets(pets);
-
     }
 }

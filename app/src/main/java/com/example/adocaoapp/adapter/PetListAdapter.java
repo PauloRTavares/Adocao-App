@@ -31,9 +31,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
     public interface OnItemClickListener{
-
         void onItemClick(Pet pet);
-
     }
 
     @NonNull
@@ -45,13 +43,9 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
-
         Pet pet = pets.get(position);
-
         holder.bind(pet, onItemClickListener);
-
         holder.nome.setText(pet.getNome());
-
         Picasso.with(context).load(pet.getAvatar()).placeholder(R.drawable.loading)
                 .error(R.drawable.loading)
                 .into(holder.imgPet, new Callback() {
@@ -76,29 +70,22 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
     public class PetViewHolder extends RecyclerView.ViewHolder {
-
         TextView nome;
         ImageView imgPet;
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
-
             nome = itemView.findViewById(R.id.txtNome);
             imgPet = itemView.findViewById(R.id.imgPet);
         }
 
         public void bind(final Pet pet, final OnItemClickListener onItemClickListener){
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                 onItemClickListener.onItemClick(pet);
-
                 }
             });
-
         }
     }
-
 }

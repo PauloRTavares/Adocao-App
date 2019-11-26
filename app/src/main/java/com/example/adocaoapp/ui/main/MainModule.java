@@ -26,4 +26,3 @@ public class MainModule {
         return new PetRepository();
     }
 }
-

@@ -11,8 +11,10 @@ public interface MainContrato {
     }
 
     interface Presenter {
+        void setView(View view);
         void callPets();
     }
+
 
     public interface Model {
         void createPet(String nome, String cidade, String avatar,

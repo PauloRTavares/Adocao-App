@@ -26,10 +26,12 @@ public class MainPresenter implements MainContrato.Presenter {
         this.view = view;
     }
 
+    //private PetRepository petRepository = new PetRepository();
+    private ArrayList<Pet> petArrayList = new ArrayList<>();
 
     @Override
     public void callPets() {
-        petArrayList = petRepository.getPets();
+        //petArrayList = petRepository.getPet();
         view.showPets(petArrayList);
     }
 

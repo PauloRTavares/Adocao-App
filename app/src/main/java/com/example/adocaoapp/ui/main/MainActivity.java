@@ -17,19 +17,21 @@ import java.util.ArrayList;
 
 import javax.inject.Inject;
 
-public class MainActivity extends AppCompatActivity implements MainContrato.View{
+public class MainActivity extends AppCompatActivity implements MainContrato.View {
     @Inject
     MainContrato.Presenter presenter;
 
     private static final String TAG = "Main";
 
     RecyclerView rv;
+    //MainPresenter presenter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         //Dagger Aqui
         ((App) getApplication()).getComponent().inject(this);
 

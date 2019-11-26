@@ -10,16 +10,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
-import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.data.model.Pet;
 
 import java.util.List;
 
 public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewHolder> {
 
     List<Pet> pets;
+    private final OnItemClickListener onItemClickListener;
 
-    public PetListAdapter(List<Pet> pets) {
+
+    public PetListAdapter(List<Pet> pets, OnItemClickListener onItemClickListener) {
         this.pets = pets;
+        this.onItemClickListener = onItemClickListener;
+    }
+
+    public interface OnItemClickListener{
+
+        void onItemClick(Pet pet);
+
     }
 
     @NonNull
@@ -34,8 +43,11 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
         Pet pet = pets.get(position);
 
+        holder.bind(pet, onItemClickListener);
+
         holder.nome.setText(pet.getNome());
-        holder.imgPet.setImageBitmap(pet.getPhoto());
+
+    //  holder.imgPet.setImageBitmap(pet.getPhoto());
 
     }
 
@@ -54,6 +66,19 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
             nome = itemView.findViewById(R.id.txtNome);
             imgPet = itemView.findViewById(R.id.imgPet);
+        }
+
+        public void bind(final Pet pet, final OnItemClickListener onItemClickListener){
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    onItemClickListener.onItemClick(pet);
+
+                }
+            });
+
         }
     }
 

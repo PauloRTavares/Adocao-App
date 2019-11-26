@@ -14,7 +14,7 @@ public interface MainContrato {
 
     interface View {
         void showPets(ArrayList<Pet> pets);
-        //void petsReady(ArrayList<Pet> pets);
+
     }
 
     interface Presenter {

@@ -14,17 +14,17 @@ import com.example.adocaoapp.R;
 import com.example.adocaoapp.model.Pet;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
+import java.util.ArrayList;
 
-import java.util.List;
 
 public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewHolder> {
 
-    List<Pet> pets;
+    ArrayList<Pet> pets;
     private final OnItemClickListener onItemClickListener;
     private Context context;
 
 
-    public PetListAdapter(List<Pet> pets, OnItemClickListener onItemClickListener, Context context) {
+    public PetListAdapter(ArrayList<Pet> pets, OnItemClickListener onItemClickListener, Context context) {
         this.pets = pets;
         this.onItemClickListener = onItemClickListener;
         this.context = context;

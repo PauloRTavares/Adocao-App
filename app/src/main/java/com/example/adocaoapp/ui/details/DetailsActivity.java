@@ -1,4 +1,4 @@
-package com.example.adocaoapp.view;
+package com.example.adocaoapp.ui.details;
 
 import androidx.appcompat.app.AppCompatActivity;
 

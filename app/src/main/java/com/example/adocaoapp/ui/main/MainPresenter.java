@@ -22,6 +22,7 @@ public class MainPresenter implements MainContrato.Presenter {
     private MainContrato.View view;
     private MainContrato.Model model = new PetConsuming();
 
+
     public MainPresenter(MainContrato.View view){
         this.view = view;
     }

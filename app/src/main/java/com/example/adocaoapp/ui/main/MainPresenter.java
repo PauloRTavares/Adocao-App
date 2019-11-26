@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainPresenter implements MainContrato.Presenter {
 
     private MainContrato.View view;
-    private MainContrato.Model model;
+    private MainContrato.Model model = new PetConsuming();
 
     public MainPresenter(MainContrato.View view){
         this.view = view;
@@ -29,7 +29,6 @@ public class MainPresenter implements MainContrato.Presenter {
 
     @Override
     public void callPets() {
-        model = new PetConsuming();
         model.requestPets(this);
     }
 

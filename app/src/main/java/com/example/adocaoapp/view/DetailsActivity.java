@@ -6,11 +6,10 @@ import android.os.Bundle;
 
 import com.example.adocaoapp.R;
 
-public class SegundaTela extends AppCompatActivity {
-
+public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_segunda_tela);
+        setContentView(R.layout.activity_details);
     }
 }

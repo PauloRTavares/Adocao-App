@@ -13,37 +13,47 @@ import com.example.adocaoapp.adapter.PetListAdapter;
 import com.example.adocaoapp.model.Pet;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
 
     RecyclerView rv;
-    MainPresenter presenter;
+    List<Pet> pets = new ArrayList<>();
+
+    @Inject
+    MainContrato.Presenter presenter;
+    private static final String TAG = "Main";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Instancia do Presenter
         presenter = new MainPresenter(this);
 
-        //Chamr método que chama o Retrofit
+        //Dagger Aqui
+        ((App) getApplication()).getComponent().inject(this);
+
         presenter.callPets();
 
     }
 
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 
     @Override
     public void showPets(ArrayList<Pet> pets) {
-
+        this.pets = pets;
         //INSTÂNCIA DO ADAPTER
         PetListAdapter adapter = new PetListAdapter(pets, new PetListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Pet pet) {
-
                 Toast.makeText(MainActivity.this, "Clicou no: "+pet.getId(), Toast.LENGTH_SHORT).show();
-
             }
         }, this);
 

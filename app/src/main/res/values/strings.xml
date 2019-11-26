@@ -3,4 +3,5 @@
     <string name="quero_adotar">Adopt</string>
     <string name="imagem_logo">Logo Picture</string>
     <string name="doguinho" translatable="false">Doguinho</string>
+    <string name="selected">You Selected</string>
 </resources>

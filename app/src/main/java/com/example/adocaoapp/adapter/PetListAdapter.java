@@ -4,8 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,7 +46,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     @Override
     public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
-        Pet pet = pets.get(position);
+        final Pet pet = pets.get(position);
         holder.bind(pet, onItemClickListener);
         holder.nome.setText(pet.getNome());
         Picasso.get().load(pet.getAvatar()).placeholder(R.drawable.loading)
@@ -60,7 +63,21 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                     }
                 });
 
-    //  holder.imgPet.setImageBitmap(pet.getPhoto());
+
+        holder.adopt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Adopt "+pet.getNome(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "Add "+pet.getNome()+" to favorites", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
     }
 
@@ -72,11 +89,15 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     public class PetViewHolder extends RecyclerView.ViewHolder {
         TextView nome;
         ImageView imgPet;
+        Button adopt;
+        ImageButton favorite;
 
         public PetViewHolder(@NonNull View itemView) {
             super(itemView);
             nome = itemView.findViewById(R.id.txtNome);
             imgPet = itemView.findViewById(R.id.imgPet);
+            adopt = itemView.findViewById(R.id.btnAdotar);
+            favorite = (ImageButton)itemView.findViewById(R.id.btnFavorito);
         }
 
         public void bind(final Pet pet, final OnItemClickListener onItemClickListener){

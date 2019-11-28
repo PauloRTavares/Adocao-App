@@ -23,10 +23,9 @@ public interface MainContrato {
 
 
     interface Presenter {
-        void writeExtras(ArrayList<String> strings, Context context);
-        void limpaPref();
 
         void callPets();
         void giveBackPets(ArrayList<Pet> pets);
+
     }
 }

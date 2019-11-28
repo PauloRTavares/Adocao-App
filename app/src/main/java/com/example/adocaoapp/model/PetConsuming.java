@@ -1,5 +1,7 @@
 package com.example.adocaoapp.model;
 
+import android.content.Context;
+
 import com.example.adocaoapp.service.JsonPlaceHolderApi;
 import com.example.adocaoapp.ui.main.MainContrato;
 import com.example.adocaoapp.ui.main.MainPresenter;
@@ -30,7 +32,6 @@ public class PetConsuming implements MainContrato.Model {
             @Override
             public void onResponse(Call<ArrayList<Pet>> call, Response<ArrayList<Pet>> response) {
                 ArrayList<Pet> pets = response.body();
-                //view.showPets(pets);
                 presenter.giveBackPets(pets);
             }
 

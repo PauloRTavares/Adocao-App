@@ -3,12 +3,17 @@ package com.example.adocaoapp.ui.main;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
 import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.model.ThePet;
+import com.example.adocaoapp.ui.details.DetailsActivity;
+
 import java.util.ArrayList;
 
 
@@ -28,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
 
         presenter = new MainPresenter(this);
         Log.d(TAG, "Log feito pelo Mergulhão no PC do Paulo");
-        presenter.callPets();
+        presenter.callPets(this);
 
     }
 
@@ -42,7 +47,9 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
             @Override
             public void onItemClick(Pet pet) {
 
-         Toast.makeText(MainActivity.this, "Clicou no: "+pet.getId(), Toast.LENGTH_SHORT).show();
+                ThePet.thePet = pet;
+
+                startActivity(new Intent(MainActivity.this, DetailsActivity.class));
 
             }
         }, this);

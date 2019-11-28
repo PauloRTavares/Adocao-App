@@ -18,7 +18,7 @@ public interface MainContrato {
     }
 
     interface Presenter {
-        void callPets();
+        void callPets(Context context);
         void giveBackPets(ArrayList<Pet> pets);
     }
 }

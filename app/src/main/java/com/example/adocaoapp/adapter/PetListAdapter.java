@@ -24,6 +24,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
 
     ArrayList<Pet> pets;
     private final OnItemClickListener onItemClickListener;
+
     private Context context;
 
 
@@ -49,6 +50,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         final Pet pet = pets.get(position);
         holder.bind(pet, onItemClickListener);
         holder.nome.setText(pet.getNome());
+
         Picasso.get().load(pet.getAvatar()).placeholder(R.drawable.loading)
                 .error(R.drawable.loading)
                 .into(holder.imgPet, new Callback() {

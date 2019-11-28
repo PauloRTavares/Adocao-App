@@ -1,5 +1,7 @@
 package com.example.adocaoapp.model;
 
+import android.content.Context;
+
 import com.example.adocaoapp.service.JsonPlaceHolderApi;
 import com.example.adocaoapp.ui.main.MainContrato;
 import com.example.adocaoapp.ui.main.MainPresenter;
@@ -16,6 +18,7 @@ public class PetConsuming implements MainContrato.Model {
 
     @Override
     public void requestPets(final MainPresenter presenter) {
+
         //Conexao Retrofit2
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://5dd40af58b5e080014dc4e30.mockapi.io/api/v1/")

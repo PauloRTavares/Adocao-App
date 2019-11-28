@@ -37,6 +37,7 @@ public class Pet {
 
     //Teste do Latido
     private static final String TAG = "Pet";
+
     public void talk(){
         Log.d(TAG, "Au au");
     }
@@ -44,6 +45,8 @@ public class Pet {
     public int getId() {
         return id;
     }
+
+
 
     public String getNome() {
         return nome;

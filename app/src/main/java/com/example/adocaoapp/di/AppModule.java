@@ -12,7 +12,7 @@ import dagger.Provides;
 public class AppModule {
     Application application;
 
-    public AppModule(Application application){
+    AppModule(Application application){
         this.application = application;
     }
 
@@ -24,7 +24,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public Resources getResources() {
+    public Resources getResources(){
         return application.getResources();
     }
 }

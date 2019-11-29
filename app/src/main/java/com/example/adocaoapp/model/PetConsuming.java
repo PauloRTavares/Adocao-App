@@ -14,11 +14,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class PetConsuming implements MainContrato.Model {
 
+    Retrofit retrofit;
+
+    //Construtor Padrão em Branco
+    PetConsuming(){
+
+    }
+
     @Override
     public void requestPets(final MainPresenter presenter) {
 
         //Conexao Retrofit2
-        Retrofit retrofit = new Retrofit.Builder()
+        retrofit = new Retrofit.Builder()
                 .baseUrl("https://5dd40af58b5e080014dc4e30.mockapi.io/api/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();

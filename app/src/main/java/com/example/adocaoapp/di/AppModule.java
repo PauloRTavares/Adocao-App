@@ -8,9 +8,8 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 
-@Module
-public class AppModule {
-    Application application;
+@Module class AppModule {
+    private Application application;
 
     AppModule(Application application){
         this.application = application;

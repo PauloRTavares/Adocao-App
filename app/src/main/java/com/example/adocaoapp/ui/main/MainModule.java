@@ -1,13 +1,21 @@
 package com.example.adocaoapp.ui.main;
 
-public class MainModule {
+import com.example.adocaoapp.util.ActivityScope;
 
-    MainContrato.View mainView;
+import dagger.Module;
+import dagger.Provides;
 
-    MainModule(MainContrato.View mainView){
+@Module public class MainModule {
+
+    private MainContrato.View mainView;
+
+    @ActivityScope
+    public MainModule(MainContrato.View mainView){
         this.mainView = mainView;
     }
 
+    @ActivityScope
+    @Provides
     public MainContrato.View getMainView() {
         return mainView;
     }

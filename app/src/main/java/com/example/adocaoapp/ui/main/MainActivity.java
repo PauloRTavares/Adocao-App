@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = setContext();
-        presenter = new MainPresenter(this);
+        //presenter = new MainPresenter(this);
         presenter.callPets();
 
     }

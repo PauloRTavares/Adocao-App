@@ -1,7 +1,5 @@
 package com.example.adocaoapp.ui.details;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 public class DetailsPresenter implements DetailsContrato.Presenter {

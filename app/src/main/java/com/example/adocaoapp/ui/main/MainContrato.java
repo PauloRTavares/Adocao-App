@@ -10,22 +10,17 @@ public interface MainContrato {
 
     interface Model{
         void requestPets(MainPresenter presenter);
-
     }
 
     interface View {
         public Context setContext();
         void showPets(ArrayList<Pet> pets);
         void iniciarDetails();
-
-
     }
 
 
     interface Presenter {
-
         void callPets();
         void giveBackPets(ArrayList<Pet> pets);
-
     }
 }

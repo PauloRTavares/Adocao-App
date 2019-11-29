@@ -17,6 +17,8 @@ import com.example.adocaoapp.ui.details.DetailsActivity;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+
 
 public class MainActivity extends AppCompatActivity implements MainContrato.View{
 
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
     ArrayList<Pet> pets = new ArrayList<>();
     Context context;
 
+    @Inject
     MainContrato.Presenter presenter;
 
     private static final String TAG = "Main";

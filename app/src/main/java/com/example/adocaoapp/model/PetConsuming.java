@@ -1,7 +1,5 @@
 package com.example.adocaoapp.model;
 
-import android.content.Context;
-
 import com.example.adocaoapp.service.JsonPlaceHolderApi;
 import com.example.adocaoapp.ui.main.MainContrato;
 import com.example.adocaoapp.ui.main.MainPresenter;

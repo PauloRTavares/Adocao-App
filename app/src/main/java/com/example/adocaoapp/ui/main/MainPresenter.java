@@ -1,21 +1,23 @@
 package com.example.adocaoapp.ui.main;
 
-
-
-import android.content.Context;
-
 import com.example.adocaoapp.model.Pet;
 import com.example.adocaoapp.model.PetConsuming;
 
 import java.util.ArrayList;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import dagger.Provides;
+
 public class MainPresenter implements MainContrato.Presenter {
 
-    private MainContrato.View view;
-    private MainContrato.Model model = new PetConsuming();
+    @Inject
+    MainContrato.View view;
+    MainContrato.Model model = new PetConsuming();
 
 
-    public MainPresenter(MainContrato.View view) {
+    MainPresenter(MainContrato.View view) {
         this.view = view;
     }
 

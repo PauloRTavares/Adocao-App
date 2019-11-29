@@ -11,7 +11,7 @@ public class MainPresenter implements MainContrato.Presenter {
     MainContrato.View view;
     MainContrato.Model model;
 
-    MainPresenter(MainContrato.View view, MainContrato.Model model){
+    public MainPresenter(MainContrato.View view, MainContrato.Model model){
         this.view = view;
         this.model = model;
     }

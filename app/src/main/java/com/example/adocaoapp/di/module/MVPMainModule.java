@@ -1,7 +1,12 @@
-package com.example.adocaoapp.ui.main;
+package com.example.adocaoapp.di.module;
 
 import com.example.adocaoapp.model.PetConsuming;
+import com.example.adocaoapp.ui.main.MainContrato;
+import com.example.adocaoapp.ui.main.MainPresenter;
 
+import dagger.Module;
+
+@Module
 public class MVPMainModule {
     private MainContrato.View view;
 

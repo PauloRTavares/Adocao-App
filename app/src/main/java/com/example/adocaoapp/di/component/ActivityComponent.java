@@ -1,6 +1,6 @@
 package com.example.adocaoapp.di.component;
 
-import com.example.adocaoapp.ui.main.MVPMainModule;
+import com.example.adocaoapp.di.module.MVPMainModule;
 import com.example.adocaoapp.ui.main.MainActivity;
 import com.example.adocaoapp.ui.main.MainContrato;
 import com.example.adocaoapp.util.ActivityScope;

@@ -17,7 +17,7 @@ import dagger.Component;
 @Component(modules = {AppModule.class, ContextModule.class, PetConsumingModule.class})
 public interface AppComponent {
     void inject(InitApp initApp);
-    Context getContext();
+    //Context getContext();
     Application getApplication();
     PetConsuming getPetsInteractor();
 }

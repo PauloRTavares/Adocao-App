@@ -5,17 +5,16 @@ import com.example.adocaoapp.model.PetConsuming;
 
 import java.util.ArrayList;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-import dagger.Provides;
-
+//Classe implementará Presenter do MainContrato
 public class MainPresenter implements MainContrato.Presenter {
 
-    @Inject
     MainContrato.View view;
-    MainContrato.Model model = new PetConsuming();
+    MainContrato.Model model;
 
+    MainPresenter(MainContrato.View view, MainContrato.Model model){
+        this.view = view;
+        this.model = model;
+    }
 
     MainPresenter(MainContrato.View view) {
         this.view = view;

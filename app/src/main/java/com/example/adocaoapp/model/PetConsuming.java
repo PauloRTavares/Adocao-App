@@ -12,12 +12,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+//Classe implementará o Model da MainContrato
 public class PetConsuming implements MainContrato.Model {
 
     //Construtor Padrão em Branco
-    PetConsuming(){
-
-    }
+    public PetConsuming(){}
 
     @Override
     public void requestPets(final MainPresenter presenter) {

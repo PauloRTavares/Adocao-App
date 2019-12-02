@@ -16,6 +16,8 @@ public class Pet {
     private String cor;
     private String sexo;
     private String descricao;
+    private boolean ehFavorito;
+    private boolean adotado;
 
     //Criando um construtor com as características de meu Pet.
     //Colocar uma injeção do Dagger
@@ -86,6 +88,22 @@ public class Pet {
 
     public String getDescricao() {
         return descricao;
+    }
+
+    public boolean isEhFavorito() {
+        return ehFavorito;
+    }
+
+    public void setEhFavorito(boolean ehFavorito) {
+        this.ehFavorito = ehFavorito;
+    }
+
+    public boolean isAdotado() {
+        return adotado;
+    }
+
+    public void setAdotado(boolean adotado) {
+        this.adotado = adotado;
     }
 
 

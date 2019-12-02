@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.model.Pet;
+import com.example.adocaoapp.ui.main.MainActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PetViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final PetViewHolder holder, final int position) {
         final Pet pet = pets.get(position);
         holder.bind(pet, onItemClickListener);
         holder.nome.setText(pet.getNome());
@@ -69,6 +70,12 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         holder.adopt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (pet.isAdotado()){
+                    pet.setAdotado(false);
+                }else {
+                    pet.setAdotado(true);
+                }
+                holder.setDados(pet);
                 Toast.makeText(context, "Adopt "+pet.getNome(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -76,9 +83,16 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         holder.favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(pet.isEhFavorito()){
+                    pet.setEhFavorito(false);
+                }else {
+                    pet.setEhFavorito(true);
+                }
+                holder.setDados(pet);
                 Toast.makeText(context, "Add "+pet.getNome()+" to favorites", Toast.LENGTH_SHORT).show();
             }
         });
+
 
 
     }
@@ -100,6 +114,22 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
             imgPet = itemView.findViewById(R.id.imgPet);
             adopt = itemView.findViewById(R.id.btnAdotar);
             favorite = (ImageButton)itemView.findViewById(R.id.btnFavorito);
+        }
+
+        public void setDados(Pet pet){
+
+            if (pet.isEhFavorito()){
+                favorite.setImageResource(R.drawable.ic_favorite_vermelho);
+            }else {
+                favorite.setImageResource(R.drawable.ic_favorite_white_24dp);
+
+            }
+
+            if (pet.isAdotado()){
+                adopt.setText("Adotado");
+            }else{
+                adopt.setText("Adotar");
+            }
         }
 
         public void bind(final Pet pet, final OnItemClickListener onItemClickListener){

@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -13,14 +12,12 @@ import com.bumptech.glide.Glide;
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.model.ThePets;
 
-import java.util.ArrayList;
-
 
 public class DetailsActivity extends AppCompatActivity implements DetailsContrato.View {
 
     private DetailsContrato.Presenter presenter;
-    private ImageButton btnFavorito;
-    private Button btnAdotar;
+    private ImageButton btnFavoritoDetails;
+    private Button btnAdotarDetails;
     private TextView nome, cidade, idade, peso, porte, raca, cor, sexo,  descricao;
     private ImageView avatar;
     Context context;
@@ -34,8 +31,8 @@ public class DetailsActivity extends AppCompatActivity implements DetailsContrat
         context = setContext();
         presenter = new DetailsPresenter(this);
 
-        btnFavorito = findViewById(R.id.btnFavorito);
-        btnAdotar = findViewById(R.id.btnAdotar);
+        btnFavoritoDetails = findViewById(R.id.btnFavorito);
+        btnAdotarDetails = findViewById(R.id.btnAdotar);
         nome = findViewById(R.id.txtNome);
         cidade = findViewById(R.id.txtLocal);
         avatar = findViewById(R.id.imgDescricao);

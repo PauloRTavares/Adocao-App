@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.adocaoapp.R;
 import com.example.adocaoapp.adapter.PetListAdapter;
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements MainContrato.View
         presenter.callPets();
 
     }
-
     @Override
     public void showPets(final ArrayList<Pet> pets) {
         //ADAPTER DA RECYCLER VIEW

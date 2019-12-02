@@ -273,7 +273,7 @@
                 android:background="#FF00E5A4"
                 android:text="Adotar"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"/>
         </LinearLayout>
 
     </LinearLayout>

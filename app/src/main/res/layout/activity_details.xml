@@ -224,7 +224,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.33" />
+                app:layout_constraintGuide_end="275dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline4"
@@ -263,17 +263,18 @@
 
             <Button
                 android:id="@+id/btnAdotar"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp"
                 android:layout_weight="1"
-                android:elevation="0dp"
                 android:background="#FF00E5A4"
+                android:elevation="0dp"
                 android:text="Adotar"
                 android:textAllCaps="false"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
     </LinearLayout>

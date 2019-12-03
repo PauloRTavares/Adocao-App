@@ -74,9 +74,9 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                     pet.setAdotado(false);
                 }else {
                     pet.setAdotado(true);
+                    Toast.makeText(context, "Adopt "+pet.getNome(), Toast.LENGTH_SHORT).show();
                 }
                 holder.setDados(pet);
-                Toast.makeText(context, "Adopt "+pet.getNome(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,9 +87,9 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                     pet.setEhFavorito(false);
                 }else {
                     pet.setEhFavorito(true);
+                    Toast.makeText(context, "Add "+pet.getNome()+" to favorites", Toast.LENGTH_SHORT).show();
                 }
                 holder.setDados(pet);
-                Toast.makeText(context, "Add "+pet.getNome()+" to favorites", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -113,7 +113,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
             nome = itemView.findViewById(R.id.txtNome);
             imgPet = itemView.findViewById(R.id.imgPet);
             adopt = itemView.findViewById(R.id.btnAdotar);
-            favorite = (ImageButton)itemView.findViewById(R.id.btnFavorito);
+            favorite = itemView.findViewById(R.id.btnFavorito);
         }
 
         public void setDados(Pet pet){
